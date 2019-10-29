@@ -33,7 +33,18 @@ def initial_round
 end
 
 def hit?
-  
+  prompt_user
+  input = get_user_input
+  if input == 's'
+    sum
+  elsif input == 'h'
+    sum += deal_card
+    display_card_total(sum)
+    sum
+  else
+    invalid_command
+    hit?(sum)
+  end
 end
 
 def invalid_command
